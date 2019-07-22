@@ -9,12 +9,21 @@ function App() {
     <Router>
     <div className="App">
         <Navigation />
-        <Route exact path="/about" component={About}/>
-        <Route exact path="/shop" component={Shop}/>
-       
+        <Switch>
+          <Route exact path="/" component={Home}/>
+          <Route exact path="/about" component={About}/>
+          <Route exact path="/shop" component={Shop}/>
+        </Switch>
     </div>
     </Router>
   );
 }
+
+
+const Home = () => (
+  <div>
+    <h1>Home Page</h1>
+  </div>
+);  
 
 export default App;
