@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import { isTSMappedType } from '@babel/types';
+import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 
 function Shop() {
 
@@ -14,15 +14,18 @@ function Shop() {
         const items = await data.json();
         console.log(items.items);
         setItems(items.items);
-}    
+    }
 
-  return (
-    <div>
-     {items.map(item => (
-         <h1 key={item.itemid}>{item.name}</h1>
-     ))}
-    </div>
-  );
+    return (
+        <div>
+            {items.map(item => (
+                <h1 key={item.itemid}>
+                    <Link to={`/shop/${item.itemid}`}>{item.name} </Link>
+                </h1>
+
+            ))}
+        </div>
+    );
 }
 
 export default Shop;
